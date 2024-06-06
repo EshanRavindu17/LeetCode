@@ -1,0 +1,27 @@
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int ub=nums.length-1;
+        int lb=0;
+        int temp=0;
+        while(lb<=ub){
+            int mid = (ub+lb)/2;
+            temp=mid;
+            if (nums[mid]==target){
+                return mid;
+            }
+            else if (nums[mid]<target){
+                lb=mid+1;
+            }
+            else{
+                ub=mid-1;
+            }
+        }if (nums[temp]>target){
+            temp=temp;
+        }
+        else if (nums[temp]<target){
+            temp+=1;
+        }
+        return temp;
+
+    }
+}
